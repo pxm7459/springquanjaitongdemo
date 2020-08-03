@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  metadata-map:
+    management.port: ${management.port:8081}
+# DataSource
+spring:
+  application:
+    name: openfeign-server
+feign:
+
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+  hystrix:
+    enabled: true
